@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupiter</title>
+</head>
+    <style>
+        
+        :root{
+            color-scheme: light dark;
+        }
+       
+        .center_img{
+            margin-right: 25vw;
+        }
+        .amarelo{
+            background-color: goldenrod;
+        }
+        .navegacao{
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 300px;
+            padding: 20px;
+        }
+        
+        .posicao_rodape{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            
+        }
+        @media (prefers-color-scheme: light){
+            
+            button{
+            background-color: rgb(255, 255, 255);
+            color:black;
+            }
+            button:hover{
+            background-color: rgba(240, 248, 255, 0);
+            color:whitesmoke;
+            }
+
+        }
+        @media (prefers-color-scheme: dark){
+            button{
+            background-color: rgba(240, 248, 255, 0);
+            color:whitesmoke;
+            }
+            button:hover{
+            background-color: rgb(255, 255, 255);
+            color:black;
+            }
+
+        }
+
+
+
+
+
+
+    </style>
+
+<body>
+    <header class="amarelo">
+        <img src="usp-logo-transparente-400-300.png" class="center_img"  height="140vh" style="margin-left: 5vw; height:10vh;">
+        <img src="usp-logo-texto.png" class="center_img" width="450vw" style="margin-left: 2vw; width: 25vw; ">
+        <button onclick="alternarModo()" style="margin-bottom: 2vw;">Alternar cores</button>
+        <div class="banner" style="background-color: rgb(16, 148, 171); height: 1.5vw;">
+        
+        </div>
+    </header>
+    <main>
+        <form id="login" class="navegacao">
+            <input type="integer" placeholder="Usuário" name="user">
+            <input type="password" placeholder="Senha" name="senha">  
+            <button>Entrar</button> 
+            <button>Esqueci a senha</button>         
+        </form>
+    </main>   
+    <nav>
+        <!-- 
+            Colocar:
+            calendario escolar
+            primeiro acesso
+            Esqueci a senha
+
+        
+        -->
+    
+    </nav> 
+    <footer class="posicao_rodape">
+        © 1999 - 2026 - Superintendência de Tecnologia da Informação/USP
+    </footer>
+
+
+    <script>
+        function alternarModo(){
+                if(document.documentElement.style.colorScheme === 'dark'){
+                    
+                    document.documentElement.style.colorScheme = 'light';
+
+                }else{
+
+                    document.documentElement.style.colorScheme = 'dark';
+
+                }
+        }
+    </script>
+
+
+
+</body>
+
+</html>

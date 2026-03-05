@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio1</title>
+
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <h1> A luz está APAGADA </h1>
+    <button onclick="alternarLuz()"> Alternar luz </button>
+
+    <script>
+        let estado = ' '
+        function alternarLuz(){
+            
+            estado = document.querySelector('h1').innerHTML
+            if(estado === "A luz está APAGADA"){
+                document.querySelector('h1').innerHTML = "A luz está ACESA"
+                document.body.style.backgroundColor = "white";
+                document.querySelector('h1').style.color = "black";
+                
+            }else{
+                document.querySelector('h1').innerHTML = "A luz está APAGADA"
+                document.body.style.backgroundColor = "black";
+                document.querySelector('h1').style.color = "white";
+
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio2</title>
+
+
+    <style>
+        body{
+            text-align: center;
+        }
+        
+
+        :root{
+            color-scheme: light dark;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+
+
+    <h1 id="titulo">Contador 2.0</h1>
+    <h1 id="contador_display"> 2 </h1> 
+    <button onclick="contadorDobrador()">Dobrar</button>
+
+
+    
+    <script>
+    //coloquei depois por conta da ordem de leitura
+
+        //declarando variavel
+        let valor = 2;
+        //para o aviso acontecer somente uma vez
+        let flag = 0;
+        document.querySelector('#contador_display').innerHTML = valor;
+        
+        //funcao de dobrar o contador
+        function contadorDobrador(){
+            valor = valor * 2;
+            document.querySelector('#contador_display').innerHTML = valor;
+            if(valor > 100 && flag == 0){
+                alert(`Cuidado, o número ${valor} está ficando muito grande!`);
+                flag = 1;
+            }
+
+
+        }
+    
+    </script>
+
+
+
+</body>
+</html>

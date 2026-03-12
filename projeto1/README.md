@@ -1,4 +1,4 @@
-# PROJETO 1 - RANKING de TÊNIS 
+# PROJETO 1 - RANKING DE TÊNIS 
 
 ## Objetivo:
 

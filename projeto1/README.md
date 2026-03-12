@@ -1,9 +1,9 @@
-# PROJETO 1 - RANKING TENIS 
+# PROJETO 1 - RANKING de TÊNIS 
 
 ## Objetivo:
 
 
-O projeto consiste em um ranking para o esporte tenis, que possui suas especificidades na hora de pontuar. Nele, será possível registrar as partidas que cada usuário jogou e, a partir desses registros, criar um ranking. No projeto inicial, não será possível diferenciar partidas amistosas a competitivas.
+O projeto consiste em um ranking para o esporte tênis, que possui suas especificidades na hora de pontuar. Nele, será possível registrar as partidas que cada usuário jogou e, a partir desses registros, criar um ranking. No projeto inicial, não será possível diferenciar partidas amistosas a competitivas.
 
 ## Utilidade:
 

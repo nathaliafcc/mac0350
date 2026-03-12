@@ -20,7 +20,9 @@
 ## Utilização:
 
 
-    Basta fazer o registro que conta com alguns dados - como idade, sexo e mão dominante - e começar a registrar as partidas jogadas.
+    Basta fazer o registro que conta com alguns dados - como idade, 
+    
+    sexo e mão dominante - e começar a registrar as partidas jogadas.
 
 
 ## Ajuda:
@@ -32,4 +34,6 @@
 ## Contribuintes:
 
 
-    Como esse foi um projeto desenvolvido individualmente, a única contribuinte é Nathália F. C. da Costa - atualmente graduanda em Ciência da computação pela Universidade de São Paulo (USP).
+    Como esse foi um projeto desenvolvido individualmente, a única contribuinte é 
+    
+    Nathália F. C. da Costa - atualmente graduanda em Ciência da computação pela Universidade de São Paulo (USP).

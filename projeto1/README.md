@@ -3,12 +3,18 @@
 ## Objetivo:
 
 
-        O projeto consiste em um ranking para o esporte tenis, que possui suas especificidades na hora de pontuar. Nele, será possível registrar as partidas que cada usuário jogou e, a partir desses registros, criar um ranking. No projeto inicial, não será possível diferenciar partidas amistosas a competitivas.
+        O projeto consiste em um ranking para o esporte tenis, que possui suas especificidades na hora de pontuar. 
+        
+        Nele, será possível registrar as partidas que cada usuário jogou e, a partir desses registros, criar um ranking. 
+        
+        No projeto inicial, não será possível diferenciar partidas amistosas a competitivas.
 
 ## Utilidade:
 
 
-        O projeto visa maior organização dos status de cada usuário, dessa forma, ele pode mensurar seu desempenho e verificar se está evoluindo.
+        O projeto visa maior organização dos status de cada usuário, 
+        
+        dessa forma, ele pode mensurar seu desempenho e verificar se está evoluindo.
 
 
 ## Utilização:

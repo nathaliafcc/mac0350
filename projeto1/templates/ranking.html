@@ -4,6 +4,16 @@
     <h1>Ranking Geral</h1>
     <p>Acompanhe a pontuação dos atletas da USP em tempo real!</p>
 
+    <div style="margin-bottom: 2vh;">
+        <input type="text" 
+        name="q" 
+        placeholder="Buscar atleta por nome..." 
+        hx-get="/buscar" 
+        hx-target="#ranking-table-body" 
+        hx-trigger="keyup changed delay:500ms"
+        style="padding: 8px; width: 300px; border-radius: 4px; border: 1px solid #ccc;">
+    </div>
+
     {% if jogadores %}
         <div class="table-container">
             <table>
@@ -13,7 +23,7 @@
                         <th>Nome</th>
                         <th>Pontos</th>
                         <th>Mão</th>
-                    </tr>
+                        <th>Ações</th> </tr>
                 </thead>
                 <tbody id="ranking-table-body">
                     {% for jogador in jogadores %}
@@ -22,6 +32,22 @@
                         <td>{{ jogador.nome }}</td>
                         <td>{{ jogador.pontos_totais }}</td>
                         <td>{{ jogador.mao_dominante }}</td>
+                        
+                        <td>
+                            <button style="background: blue; color: white; border: none; padding: 5px; cursor: pointer; border-radius: 3px; margin-right: 5px;"
+                                hx-put="/jogadores/{{ jogador.nusp }}/aniversario"
+                                hx-swap="none"
+                                onclick="alert('Idade atualizada!')">
+                                +1 Ano
+                            </button>
+
+                            <button style="background: red; color: white; border: none; padding: 5px; cursor: pointer; border-radius: 3px;"
+                                hx-delete="/jogadores/{{ jogador.nusp }}"
+                                hx-target="closest tr"
+                                hx-swap="outerHTML">
+                                Aposentar
+                            </button>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -30,13 +56,11 @@
     {% else %}
         <div class="vazio-container" style="text-align: center; padding: 5vh; background: white; border-radius: 8px;">
             <p>Ninguém por aqui ainda...</p>
-            <p>Que tal se cadastrar para ser o João Fonseca da USP?</p>
+            <p>Que tal se cadastrar para ser o ídolo da USP?</p>
             <br>
             <a href="/cadastro" class="botao" style="text-decoration: none;">Ir para Cadastro</a>
         </div>
     {% endif %}
+
 </section>
-
-
-
 {% endblock %}

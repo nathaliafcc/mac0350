@@ -7,6 +7,7 @@ from fastapi import Form, Depends
 from sqlmodel import Session
 from database import get_session 
 from sqlmodel import select
+from fastapi.responses import HTMLResponse
 
 app = FastAPI()
 
@@ -112,3 +113,34 @@ def registrar_partida(
     session.commit() 
     
     return f"<p style='color: #2d6a4f; background: #e8f5e9; padding: 10px; border-radius: 5px;'> Registrado!  {vencedor.nome} agora tem {vencedor.pontos_totais} pontos! </p>"
+
+@app.get("/buscar")
+def buscar_jogador(q: str, session: Session = Depends(get_session)):
+    # Busca quem tem o texto digitado no nome
+    statement = select(Jogador).where(Jogador.nome.contains(q)).order_by(Jogador.pontos_totais.desc())
+    jogadores = session.exec(statement).all()
+    
+    # Retorna APENAS as linhas da tabela (HTMX style)
+    html_linhas = ""
+    for i, j in enumerate(jogadores):
+        html_linhas += f"<tr><td>{i+1}º</td><td>{j.nome}</td><td>{j.pontos_totais}</td><td>{j.mao_dominante}</td></tr>"
+    
+    return HTMLResponse(content=html_linhas)
+
+@app.delete("/jogadores/{nusp}")
+def deletar_jogador(nusp: int, session: Session = Depends(get_session)):
+    jogador = session.get(Jogador, nusp)
+    if jogador:
+        session.delete(jogador)
+        session.commit()
+    return "" 
+
+@app.put("/jogadores/{nusp}/aniversario")
+def fazer_aniversario(nusp: int, session: Session = Depends(get_session)):
+    jogador = session.get(Jogador, nusp)
+    if jogador:
+        jogador.idade += 1
+        session.add(jogador)
+        session.commit()
+    return ""
+

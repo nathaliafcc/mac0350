@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking de Tênis</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="container"> <a href="/" class="logo">Tênis RankUSP</a>
+            <ul class="nav_menu">
+               
+                <li><a href="/">Ranking</a></li>
+                
+                <li><a href="/cadastro">Cadastre-se</a></li>
+
+                <li><a href="/partida"> Cadastrar partida </a></li>
+            
+            </ul>
+        
+        </div>
+    </nav>
+
+    <main class="container">
+    
+        {% block content %}{% endblock %}
+   
+    </main>
+    
+   
+    <footer class="footer">
+   
+        <a style=" text-decoration: none ; color: #2d6a4f" href="/">Voltar para Ranking</a>
+   
+    </footer>
+
+</body>
+</html>

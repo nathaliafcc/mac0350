@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de Usuários</title>
+    <style>
+        body { font-family: sans-serif; background: #292827; color: #e0e0e0; padding: 20px; }
+        nav { margin-bottom: 20px; border-bottom: 1px solid #ff690a; padding-bottom: 10px; }
+        a { color: #ff690a; margin-right: 15px; text-decoration: none; }
+        input { display: block; margin: 10px 0; padding: 8px; }
+        button { background: #ff690a; color: white; border: none; padding: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Registrar</a>
+        <a href="/login">Login</a>
+        <a href="/home">Perfil</a>
+    </nav>
+    {% block conteudo %}{% endblock %}
+</body>
+</html>

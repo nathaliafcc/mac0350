@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}  
+<section class="perfil-section">
+    <h1>Informações do Atleta</h1>
+    <p>Cadastre-se para entrar no ranking da USP!</p>
+    
+    <form hx-post="/jogadores" hx-target="#mensagem" hx-swap="innerHTML">
+        <h3>Cadastro de Jogador</h3>
+        
+        <div>
+            <label>Nome Completo:</label>
+            <input type="text" name="nome" placeholder="Ex: Naomi Osaka" required>
+        </div>
+
+        <div>
+            <label>NUSP:</label>
+            <input type="number" name="nusp" placeholder="NUSP" required>
+        </div>
+        
+        <div>
+            <label>Idade:</label>
+            <input type="number" name="idade" min="1" required>
+        </div>
+
+        <div>
+            <label>Sexo:</label>
+            <select name="sexo">
+                <option value="Feminino">Feminino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Outro">Outro</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Mão Dominante:</label>
+            <select name="mao_dominante">
+                <option value="Destro">Destro</option>
+                <option value="Canhoto">Canhoto</option>
+            </select>
+        </div>
+
+        <button type="submit" class="botao">Enviar</button>
+        
+        <div id="mensagem"></div>
+    </form>
+</section>
+
+<hr style="margin: 5vh 0; border: 0; border-top: 1px solid #eee;">
+
+{% endblock %}

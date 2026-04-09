@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block conteudo %}
+<h2>Login</h2>
+<input type="text" id="nome_login" placeholder="Nome">
+<input type="password" id="senha_login" placeholder="Senha">
+<button type="button" onclick="fazerLogin()">Entrar</button>
+
+<script>
+async function fazerLogin() {
+    const dados = {
+        nome: document.getElementById('nome_login').value,
+        senha: document.getElementById('senha_login').value
+    };
+    const res = await fetch('/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(dados)
+    });
+    if (res.ok) { window.location.href = "/home"; }
+    else { alert("Falha no login"); }
+}
+</script>
+{% endblock %}

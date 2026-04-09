@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}  
+
+<hr style="margin: 5vh 0; border: 0; border-top: 1px solid #eee;">
+
+<section class="perfil-section">
+    <h2>Registrar Partida</h2>
+    <p>Selecione os atletas e informe o placar final </p>
+
+    <form hx-post="/partidas" hx-target="#mensagem-partida">
+        <div>
+            <label>NUSP do Vencedor:</label>
+            <input type="number" name="vencedor_nusp" required>
+        </div>
+        <div>
+            <label>NUSP do Perdedor:</label>
+            <input type="number" name="perdedor_nusp" required>
+        </div>
+
+        <div>
+            <label>Placar Final:</label>
+            <input type="text" name="placar" placeholder="Ex: 6/4 7/5" required>
+        </div>
+
+        <button type="submit" class="botao">Registrar Vitória</button>
+        
+        <div id="mensagem-partida" style="margin-top: 2vh;"></div>
+    </form>
+
+
+{% endblock %}
+

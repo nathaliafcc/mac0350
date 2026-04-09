@@ -18,7 +18,6 @@
             --border-color: #444;
             --code-bg: #404040;
         }
-
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.7;
@@ -27,12 +26,10 @@
             margin: 0;
             padding: 2rem 1.5rem;
         }
-
-        .container { 
-            max-width: 800px;
+        .container {
+             max-width: 800px;
             margin: 0 auto;
         }
-
         h1, h2, h3 { color: var(--accent-color-1); font-weight: 700; }
         h1 { border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 30px; }
         
@@ -44,7 +41,6 @@
             border-radius: 8px;
             margin-bottom: 25px;
         }
-
         code {
             background-color: var(--code-bg);
             color: var(--accent-color-2);
@@ -52,7 +48,6 @@
             border-radius: 4px;
             font-family: 'Roboto Mono', monospace;
         }
-
         button {
             background-color: var(--code-bg);
             color: var(--accent-color-1);
@@ -65,7 +60,6 @@
             margin-top: 15px;
             transition: all 0.2s;
         }
-
         button:hover { background-color: var(--accent-color-1); color: #fff; }
         
         input, select {
@@ -76,7 +70,6 @@
             color: var(--primary-text-color);
             margin-top: 10px;
         }
-
         .output-text { display: inline-block; margin-left: 15px; font-weight: bold; color: #fff; }
         ul.dynamic-list { margin-top: 15px; padding-left: 20px; }
     </style>
@@ -128,34 +121,62 @@
     document.addEventListener('DOMContentLoaded', () => {
         
         // --- Exercício 1 ---
-        // Seu código aqui
-        const botao_sem_dependencia = document.getElementById(`btn-listener`);
-        document.addEventListener('click',()=>{
-            botao_sem_dependencia.innerHTML = "Fui clicado via Listener!"
-
+        const btnListener = document.getElementById('btn-listener');
+        btnListener.addEventListener('click', () => {
+            btnListener.textContent = 'Fui clicado via Listener!';
         });
-        
         
         // --- Exercício 2 ---
-        // Seu código aqui
-        <!--<button id="btn-add">Adicionar</button>
-        <ul id="lista-itens" class="dynamic-list"></ul>-->
-        const lista = document.getElementById('lista-itens');
-        const botao_add = document.getElementById('btn-add');
-        document.addEventListener('click', ()=>){
-            
-            document.createElement('li').innerHTML = lista.value;      
+        const inputItem = document.getElementById('input-item');
+        const btnAdd = document.getElementById('btn-add');
+        const listaItens = document.getElementById('lista-itens');
+
+        btnAdd.addEventListener('click', () => {
+            const texto = inputItem.value;
+            if (texto.trim() !== '') {
+                const novoLi = document.createElement('li');
+                novoLi.textContent = texto;
+                listaItens.appendChild(novoLi);
+                inputItem.value = ''; 
+            }
         });
-        
         
         // --- Exercício 3 ---
         // Dica: Crie a variável do tempo aqui fora, e o setInterval dentro do listener do botão
-        // Seu código aqui
-        
+        let tempo = 0;
+        let intervalo;
+        const btnIniciar = document.getElementById('btn-iniciar');
+        const visorCronometro = document.getElementById('visor-cronometro');
+
+        btnIniciar.addEventListener('click', () => {
+            clearInterval(intervalo); 
+            intervalo = setInterval(() => {
+                tempo++;
+                visorCronometro.textContent = tempo;
+            }, 1000);
+        });
         
         // --- Exercício 4 ---
         // Seu código aqui (Lembre-se de checar o localStorage logo que a página carregar!)
-        
+        const selectTime = document.getElementById('select-time');
+        const timeSelecionado = document.getElementById('time-selecionado');
+
+        const timeSalvo = localStorage.getItem('timeEscolhido');
+        if (timeSalvo) {
+            selectTime.value = timeSalvo;
+            timeSelecionado.textContent = timeSalvo;
+        }
+
+        selectTime.addEventListener('change', () => {
+            const timeAtual = selectTime.value;
+            if (timeAtual) {
+                timeSelecionado.textContent = timeAtual;
+                localStorage.setItem('timeEscolhido', timeAtual);
+            } else {
+                timeSelecionado.textContent = 'Nenhum selecionado';
+                localStorage.removeItem('timeEscolhido');
+            }
+        });
     });
 </script>
 

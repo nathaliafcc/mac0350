@@ -1,0 +1,6 @@
+{% extends "layout.html" %}
+{% block conteudo %}
+<h1>Perfil de {{ nome }}</h1>
+<p><strong>Bio:</strong> {{ bio }}</p>
+<button onclick="document.cookie='session_user=; Max-Age=0; path=/;'; window.location.href='/login'">Sair</button>
+{% endblock %}

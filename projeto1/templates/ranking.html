@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="ranking-section">
+    <h1>Ranking Geral</h1>
+    <p>Acompanhe a pontuação dos atletas da USP em tempo real!</p>
+
+    {% if jogadores %}
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Posição</th>
+                        <th>Nome</th>
+                        <th>Pontos</th>
+                        <th>Mão</th>
+                    </tr>
+                </thead>
+                <tbody id="ranking-table-body">
+                    {% for jogador in jogadores %}
+                    <tr>
+                        <td>{{ loop.index }}º</td> 
+                        <td>{{ jogador.nome }}</td>
+                        <td>{{ jogador.pontos_totais }}</td>
+                        <td>{{ jogador.mao_dominante }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="vazio-container" style="text-align: center; padding: 5vh; background: white; border-radius: 8px;">
+            <p>Ninguém por aqui ainda...</p>
+            <p>Que tal se cadastrar para ser o João Fonseca da USP?</p>
+            <br>
+            <a href="/cadastro" class="botao" style="text-decoration: none;">Ir para Cadastro</a>
+        </div>
+    {% endif %}
+</section>
+
+
+
+{% endblock %}

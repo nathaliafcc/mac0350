@@ -1,0 +1,18 @@
+# Ambientes Virtuais
+venv/
+.venv/
+env/
+
+# Cache do Python e FastAPI
+__pycache__/
+*.pyc
+*.pyo
+
+# Bancos de Dados
+*.db
+*.sqlite3
+
+# Seguranca e IDEs
+.env
+.vscode/
+.idea/

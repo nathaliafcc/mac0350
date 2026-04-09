@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício HTMX</title>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.js"></script>
+    <style>
+        body { font-family: sans-serif; background: #292827; color: #e0e0e0; padding: 20px; }
+        nav { margin-bottom: 20px; }
+        button { 
+            background: #444; color: #fff; border: 1px solid #ff690a; 
+            padding: 10px; cursor: pointer; margin-right: 5px;
+        }
+        button.active { background: #ff690a; }
+        .conteudo-box { border: 1px solid #444; padding: 20px; border-radius: 8px; }
+    </style>
+</head>
+<body hx-on:htmx-after-on-load="
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    if(event.detail.elt.tagName === 'BUTTON') event.detail.elt.classList.add('active');
+">
+    <h1>Sistema de Abas</h1>
+    
+    <nav id="navbar">
+        <button hx-get="/aba-curtidas" hx-target="#main-content" class="active">Curtidas</button>
+        <button hx-get="/aba-jupiter" hx-target="#main-content">Júpiter</button>
+        <button hx-get="/aba-professor" hx-target="#main-content">Professor</button>
+    </nav>
+
+    <div id="main-content" class="conteudo-box" hx-get="{{ pagina }}" hx-trigger="load"></div>
+
+    <div hx-trigger="keyup[shiftKey&&altKey&&(key=='p'||key=='P')] from:body"
+         hx-get="/aba-jupiter" 
+         hx-target="#main-content"
+         hx-on::after-request="
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+            document.querySelector('button[hx-get=\'/aba-jupiter\']').classList.add('active');
+         ">
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<h3>Gerenciar Alunos</h3>
+
+<form hx-post="/novoAluno" hx-target="#mensagem" hx-swap="beforeend">
+    <input type="text" name="nome" placeholder="Nome do Aluno" required>
+    <button type="submit">Salvar</button>
+</form>
+
+<hr>
+
+<form hx-delete="/deletaAluno" hx-target="#mensagem" hx-swap="beforeend">
+    <input type="number" name="id" placeholder="ID do aluno" required>
+    <button type="submit">Deletar aluno</button>
+</form>
+
+<div id="mensagem" style="margin-top: 20px; border: 1px solid #ccc; padding: 10px;">
+    <strong>Log de ações:</strong><br>
+</div>

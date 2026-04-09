@@ -1,5 +1,5 @@
 from models import Jogador, Partida
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Response
 from database import engine, create_db_and_tables
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -119,8 +119,6 @@ def buscar_jogador(q: str, session: Session = Depends(get_session)):
     # Busca quem tem o texto digitado no nome
     statement = select(Jogador).where(Jogador.nome.contains(q)).order_by(Jogador.pontos_totais.desc())
     jogadores = session.exec(statement).all()
-    
-    # Retorna APENAS as linhas da tabela (HTMX style)
     html_linhas = ""
     for i, j in enumerate(jogadores):
         html_linhas += f"<tr><td>{i+1}º</td><td>{j.nome}</td><td>{j.pontos_totais}</td><td>{j.mao_dominante}</td></tr>"
@@ -130,9 +128,25 @@ def buscar_jogador(q: str, session: Session = Depends(get_session)):
 @app.delete("/jogadores/{nusp}")
 def deletar_jogador(nusp: int, session: Session = Depends(get_session)):
     jogador = session.get(Jogador, nusp)
-    if jogador:
-        session.delete(jogador)
-        session.commit()
+    if not jogador:
+        return ""
+
+    # busca partidas
+    statement = select(Partida).where(
+        (Partida.vencedor_id == nusp) | (Partida.perdedor_id == nusp)
+    )
+    partidas_para_apagar = session.exec(statement).all()
+
+    # apaga partidas, mas pontos se mantem
+    for partida in partidas_para_apagar:
+        session.delete(partida)
+
+    # apaga
+    session.delete(jogador)
+    
+    # salva
+    session.commit()
+    
     return "" 
 
 @app.put("/jogadores/{nusp}/aniversario")

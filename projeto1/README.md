@@ -20,7 +20,7 @@ Para executar o projeto localmente, siga os passos abaixo no seu terminal:
 6. Abra o seu navegador e acesse o endereço: `http://127.0.0.1:8000` 
 
 ## Ajuda:
-Quaisquer dúvidas podem ser resolvidas mandando um email para @(ainda a decidir).
+Quaisquer dúvidas podem ser resolvidas mandando um email para nathaliafcc@usp.br.
 
 ## Contribuintes:
 Como esse foi um projeto desenvolvido individualmente, a única contribuinte é Nathália F. C. da Costa - atualmente graduanda em Ciência da computação pela Universidade de São Paulo (USP).

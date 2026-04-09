@@ -9,15 +9,15 @@ O projeto visa maior organização dos status de cada usuário, dessa forma, ele
 ## Utilização:
 Basta fazer o registro que conta com alguns dados - como idade, sexo e mão dominante - e começar a registrar as partidas jogadas.
 
-## Como Rodar a Aplicação: //ALTERADO!
-Para executar o projeto localmente, siga os passos abaixo no seu terminal: //ALTERADO!
+## Como Rodar a Aplicação: 
+Para executar o projeto localmente, siga os passos abaixo no seu terminal: 
 
-1. Abra o terminal na pasta raiz do projeto. //ALTERADO!
-2. Crie um ambiente virtual executando: `python3 -m venv venv` //ALTERADO!
-3. Ative o ambiente virtual com: `source venv/bin/activate` (No Windows, use: `venv\Scripts\activate`) //ALTERADO!
-4. Instale as dependências necessárias executando: `pip install -r requirements.txt` //ALTERADO!
-5. Inicie o servidor local com o comando: `uvicorn main:app --reload` //ALTERADO!
-6. Abra o seu navegador e acesse o endereço: `http://127.0.0.1:8000` //ALTERADO!
+1. Abra o terminal na pasta raiz do projeto. 
+2. Crie um ambiente virtual executando: `python3 -m venv venv` 
+3. Ative o ambiente virtual com: `source venv/bin/activate` (No Windows, use: `venv\Scripts\activate`) 
+4. Instale as dependências necessárias executando: `pip install -r requirements.txt` 
+5. Inicie o servidor local com o comando: `uvicorn main:app --reload` 
+6. Abra o seu navegador e acesse o endereço: `http://127.0.0.1:8000` 
 
 ## Ajuda:
 Quaisquer dúvidas podem ser resolvidas mandando um email para @(ainda a decidir).
